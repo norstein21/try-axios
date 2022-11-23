@@ -6,9 +6,18 @@ const PostRequest = () => {
   const [name, setName] = useState('');
   const [email, setEmail] = useState('');
 
+  
   const handleSubmit = async (e) => {
     e.preventDefault();
     console.log(name, email);
+    try{
+      const post = await axios.post(url,{name: name, email: email})
+      console.log(post)
+      setName('')
+      setEmail('')
+    } catch(error){
+      console.log(error.post)
+    }
   };
 
   return (

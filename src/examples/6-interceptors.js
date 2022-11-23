@@ -1,10 +1,15 @@
 import { useEffect } from 'react';
-
+import authIntercept from '../axios/interceptors';
+import axios from 'axios';
 const url = 'https://course-api.com/react-store-products';
 
 const Interceptors = () => {
   const fetchData = async () => {
-    console.log('axios interceptors');
+    try {
+    const response = await authIntercept('/react-store-products')
+    } catch (error) {
+      console.log('error',error.response)
+    }
   };
 
   useEffect(() => {
